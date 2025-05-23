@@ -1,0 +1,467 @@
+/* 메인 헤더 */
+.main-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('./main_wallpaper.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+}
+
+/* 헤더 컨테이너 */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 200px);
+    margin: 0 100px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* 로고 스타일 */
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* 네비게이션 바 스타일 */
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 16px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #333;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* 프로필 섹션 */
+.profile-section {
+    height: calc(100vh - 100px);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* 배경 오버레이 */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+/* 프로필 영역 수정 */
+.profile-row {
+    width: calc(100% - 200px);
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 1000px;
+    height: calc(100vh - 100px);
+    position: relative;
+    z-index: 2;
+}
+
+.profile-row h1 {
+    text-align: left;
+    margin: 0;
+    max-width: 60%;
+    flex-shrink: 0;
+    font-size: 3.5em;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+.profile-row h1 i {
+    background: linear-gradient(to right, 
+        #FFB3BA, /* 파스텔 핑크 */
+        #FFDFBA, /* 파스텔 오렌지 */
+        #FFFFBA, /* 파스텔 옐로우 */
+        #BAFFC9, /* 파스텔 그린 */
+        #BAE1FF, /* 파스텔 블루 */
+        #E0BAFF, /* 파스텔 퍼플 */
+        #FFB3F7  /* 파스텔 라벤더 */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: normal;
+    font-weight: bold;
+    animation: rainbow 5s linear infinite;
+    background-size: 200% auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.profile-img {
+    width: 300px;               /* 이미지 크기 증가 */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #eee;     /* 테두리 두께 증가 */
+    flex-shrink: 0;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.full-stack-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #333;
+    animation: typing 3.5s steps(7, end),
+               blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 200px }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #333 }
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+    .profile-row {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        min-width: auto;      /* 모바일에서는 최소 너비 제한 해제 */
+        flex-direction: column;  /* 세로 배치로 변경 */
+        gap: 30px;            /* 요소 간 간격 */
+        text-align: center;   /* 텍스트 중앙 정렬 */
+    }
+
+    .profile-row h1 {
+        max-width: 100%;      /* 글씨 영역 최대 너비 확장 */
+        text-align: center;   /* 텍스트 중앙 정렬 */
+    }
+
+    .profile-img {
+        width: 180px;         /* 모바일에서 이미지 크기 조정 */
+        height: 180px;
+    }
+
+    .profile-text {
+        align-items: center;
+    }
+    
+    .full-stack-text {
+        text-align: center;
+    }
+    
+    .full-stack-text::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* 네비게이션 아이콘 */
+.navicon-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.navicon-wrap img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* 스택 아이콘 */
+.stack-icon-wrap {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.stack-icon-wrap img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+h2 {
+  margin-top: 80px;           /* 여백 증가 */
+  margin-bottom: 30px;        /* 여백 증가 */
+  font-size: 2.8em;           /* 텍스트 크기 증가 */
+}
+
+h3 {
+  margin-bottom: 60px;        /* 여백 증가 */
+  font-size: 1.8em;           /* 텍스트 크기 증가 */
+}
+
+/* 프로젝트노션 카드 */
+.notion-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;                  /* 카드 간격 증가 */
+    justify-content: center;
+    padding: 40px;              /* 패딩 증가 */
+}
+
+.notion-card {
+    background: #fff;
+    border-radius: 16px;        /* 모서리 둥글기 증가 */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);  /* 그림자 효과 강화 */
+    overflow: hidden;
+    width: 320px;               /* 카드 크기 증가 */
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.notion-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.notion-thumb {
+    width: 100%;
+    height: 200px;              /* 썸네일 높이 증가 */
+    object-fit: cover;
+    background: #eee;
+}
+
+.notion-content {
+    padding: 24px;              /* 패딩 증가 */
+}
+
+.notion-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.4em;           /* 텍스트 크기 증가 */
+}
+
+.notion-content p {
+    margin: 0;
+    color: #555;
+    font-size: 1.1em;           /* 텍스트 크기 증가 */
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto;            /* 상단 여백 감소 */
+    padding: 40px;              /* 패딩 증가 */
+    border: 1px solid #888;
+    width: 90%;                 /* 너비 증가 */
+    max-width: 1000px;          /* 최대 너비 증가 */
+    border-radius: 16px;        /* 모서리 둥글기 증가 */
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: black;
+}
+
+/* 모달 내용 스타일 */
+.project-description {
+    font-size: 1.4em;           /* 텍스트 크기 증가 */
+    color: #666;
+    margin: 30px 0;             /* 여백 증가 */
+}
+
+.project-details {
+    margin-top: 20px;
+}
+
+.project-details h3 {
+    color: #333;
+    margin: 20px 0 15px 0;      /* 여백 증가 */
+    font-size: 1.6em;           /* 텍스트 크기 증가 */
+}
+
+.project-details ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-details li {
+    background-color: #f0f0f0;
+    padding: 8px 20px;          /* 패딩 증가 */
+    border-radius: 20px;        /* 모서리 둥글기 증가 */
+    font-size: 1.1em;           /* 텍스트 크기 증가 */
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 30px;           /* 여백 증가 */
+    padding: 15px 30px;         /* 패딩 증가 */
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;         /* 모서리 둥글기 증가 */
+    transition: background-color 0.3s;
+    font-size: 1.2em;           /* 텍스트 크기 증가 */
+}
+
+.github-link:hover {
+    background-color: #555;
+}
+
+/* 메인 컨텐츠 래퍼 */
+.main-content {
+    position: relative;
+    z-index: 10;
+    margin-top: 100vh; /* 헤더 높이만큼 여백 추가 */
+}
+
+
+/* 전체 섹션 공통 */
+section {
+    height: 100vh; /* 한 화면 크기로 설정 */
+    position: relative;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    z-index: 1;
+    scroll-margin-top: 100px;
+}
+
+/* 보이게 할 때 추가되는 클래스 */
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 각각의 섹션 스타일링 */
+.main-header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    position: relative;
+    z-index: 3;
+}
+
+.tech-stack-section, .projects-section {
+    background-color: #f9f9f9;
+    z-index: 2;
+    scroll-margin-top: 100px; /* 헤더 높이만큼 설정 */
+}
+
+.tech-stack-section {
+    z-index: 2;
+}
+
+.projects-section {
+    z-index: 1;
+}
+
+
+
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #000; }
+}
+
+/* 페이지 전체에 부드러운 스크롤 적용 */
+html {
+    scroll-behavior: smooth;
+}
+

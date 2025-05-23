@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="stylesheet" href="portfolio.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hiwon의 포트폴리오</title>
+    </head>
+    <body>
+        <header class="main-header" id="main-header">
+            <!-- 1. 로고바 -->
+            <div class="header-container">
+
+                <!-- 2. 네비게이션 바 -->
+                <nav>
+                    <ul>
+                        <li><a href="#main-header">Home</a></li>
+                        <li><a href="#tech-stack">Stacks</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </nav>
+
+                <!-- 3. 아이콘들 -->
+                <div class="navicon-wrap">
+                    <a href="https://hiwonwon.tistory.com/" target="_blank">
+                        <img src="img/tistory.png" alt="아이콘11">
+                    </a>
+                    <a href="https://github.com/hiwonwon" target="_blank">
+                        <img src="img/icon13.png" alt="아이콘13">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. 프로필 영역 -->
+            <div class="profile-section">
+                <div class="profile-row">
+                    <div class="profile-text">
+                        <div class="full-stack-text">Backend</div>
+                        <h1 style="text-align: left;">
+                            Hi 👋,<br>
+                            제 이름은 <i class="name">hiwon</i>입니다.<br>
+                            저는 백엔드 개발을 잘해요!
+                        </h1>
+                    </div>
+                    <img class="profile-img" src="img/profile.jpeg" alt="프로필 사진">
+                </div>
+            </div>
+        </header>
+
+        <!-- 기술 스택 영역 -->
+        <section class="tech-stack-section" id="tech-stack">
+            <div class="tech-stack-section">
+                <h2 style="text-align: center;">
+                    My Tech Stack<br>
+                </h2>
+                <h3 style="text-align: center;font-weight: lighter;">
+                    제가 주로 사용하는 기술 스택들이에요
+                </h3>
+                <br>
+                <br>
+                <div class="stack-icon-wrap">
+                    <img src="img/icon1.png" alt="아이콘1">
+                    <img src="img/icon2.png" alt="아이콘2">
+                    <img src="img/icon3.png" alt="아이콘3">
+                    <img src="img/icon4.png" alt="아이콘4">
+                    <img src="img/icon5.png" alt="아이콘5">
+                    <img src="img/icon6.png" alt="아이콘6">
+                    <img src="img/icon7.png" alt="아이콘7">
+                    <img src="img/icon8.png" alt="아이콘8">
+                    <img src="img/icon9.png" alt="아이콘9">
+                    <img src="img/icon10.png" alt="아이콘10">
+
+                </div>
+            </div>
+        </section>
+        <!-- 프로젝트 영역 -->
+         <section class="projects-section" id="projects"> 
+        <div class="projects-section">
+            <h2 style="text-align: center;">
+                Projects
+            </h2>
+            <h3 style="text-align: center;font-weight: lighter;">
+                제가 진행한 프로젝트입니다.
+            </h3>
+            <!-- 프로젝트 카드 영역 -->
+             <div class="projects-section">
+                <div class="notion-cards">
+                    <div class="notion-card" onclick="openModal('history')">
+                        <img class="notion-thumb" src="img/history.png" alt="썸네일1">
+                        <div class="notion-content">
+                            <h3>History</h3>
+                            <p>역사관련 커뮤니티앱</p>
+                        </div>
+                    </div>
+                    <div class="notion-card" onclick="openModal('librog')">
+                        <img class="notion-thumb" src="img/librog.png" alt="썸네일2">
+                        <div class="notion-content">
+                            <h3>Librog</h3>
+                            <p>독서 기록 관리 앱</p>
+                        </div>
+                    </div>
+                    <div class="notion-card" onclick="openModal('eyphone')">
+                        <img class="notion-thumb" src="thumbnail1.jpg" alt="썸네일1">
+                        <div class="notion-content">
+                            <h3>Eyphone</h3>
+                            <p>시각장애인 보조장치 앱</p>
+                        </div>
+                    </div>
+                    <div class="notion-card" onclick="openModal('hiwonshop')">
+                        <img class="notion-thumb" src="thumbnail1.jpg" alt="썸네일1">
+                        <div class="notion-content">
+                            <h3>Hiwon shop</h3>
+                            <p>Spring Boot를 이용한 쇼핑몰 사이트 프로젝트</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 모달 창 -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <div id="modalContent">
+                    <!-- 모달 내용이 여기에 동적으로 삽입됩니다 -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function openModal(projectId) {
+                const modal = document.getElementById('projectModal');
+                const modalContent = document.getElementById('modalContent');
+                
+                // 프로젝트별 상세 정보
+                const projectDetails = {
+                    'history': {
+                        title: 'History',
+                        description: '역사관련 커뮤니티앱',
+                        details: '역사에 관심있는 사람들을 위한 커뮤니티 앱입니다. 사용자들은 역사 관련 글을 작성하고 공유할 수 있습니다.',
+                        technologies: ['React', 'Node.js', 'MongoDB'],
+                        github: 'https://github.com/hiwonwon/history-app'
+                    },
+                    'librog': {
+                        title: 'Librog',
+                        description: '독서 기록 관리 앱',
+                        details: '독서 기록을 관리하고 공유할 수 있는 앱입니다. 독서 목록 관리, 독후감 작성, 독서 통계 기능을 제공합니다.',
+                        technologies: ['React Native', 'Firebase'],
+                        github: 'https://github.com/hiwonwon/librog'
+                    },
+                    'eyphone': {
+                        title: 'Eyphone',
+                        description: '시각장애인 보조장치 앱',
+                        details: '시각장애인을 위한 보조 앱으로, 음성 인식과 텍스트 음성 변환 기능을 제공합니다.',
+                        technologies: ['Python', 'OpenCV', 'TensorFlow'],
+                        github: 'https://github.com/hiwonwon/eyphone'
+                    },
+                    'hiwonshop': {
+                        title: 'Hiwon shop',
+                        description: 'Spring Boot를 이용한 쇼핑몰 사이트 프로젝트',
+                        details: 'Spring Boot를 활용한 온라인 쇼핑몰 프로젝트입니다. 상품 관리, 장바구니, 결제 기능을 구현했습니다.',
+                        technologies: ['Spring Boot', 'MySQL', 'Thymeleaf'],
+                        github: 'https://github.com/hiwonwon/hiwon-shop'
+                    }
+                };
+
+                const project = projectDetails[projectId];
+                modalContent.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-details">
+                        <h3>프로젝트 상세</h3>
+                        <p>${project.details}</p>
+                        <h3>사용 기술</h3>
+                        <ul>
+                            ${project.technologies.map(tech => `<li>${tech}</li>`).join('')}
+                        </ul>
+                        <a href="${project.github}" target="_blank" class="github-link">GitHub 보기</a>
+                    </div>
+                `;
+                
+                modal.style.display = 'block';
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('projectModal');
+                modal.style.display = 'none';
+            }
+
+            // 모달 외부 클릭시 닫기
+            window.onclick = function(event) {
+                const modal = document.getElementById('projectModal');
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            // 스크롤 감지 및 섹션 표시
+            function handleScroll() {
+                const techStackSection = document.querySelector('.tech-stack-section');
+                const projectsSection = document.querySelector('.projects-section');
+                const profileSection = document.querySelector('.profile-section');
+                const profileBottom = profileSection.getBoundingClientRect().bottom;
+                const techStackBottom = techStackSection.getBoundingClientRect().bottom;
+                
+                if (profileBottom <= window.innerHeight) {
+                    techStackSection.classList.add('visible');
+                } else {
+                    techStackSection.classList.remove('visible');
+                }
+
+                if (techStackBottom <= window.innerHeight) {
+                    projectsSection.classList.add('visible');
+                } else {
+                    projectsSection.classList.remove('visible');
+                }
+            }
+
+            // 스크롤 이벤트 리스너 등록
+            window.addEventListener('scroll', handleScroll);
+            
+            // 초기 로드 시 한 번 실행
+            handleScroll();
+        </script>
+
+        <!-- 하단 영역 -->
+        <div class="bottom-row">
+            <h4 style="font-weight:lighter;">hyewon9913@gmail.com</h4>
+        </div>
+        <hr>
+        <footer>
+            <p style="text-align: center;">
+                &copy; 2025 hiwon. All rights reserved.
+            </p>
+
+        </footer>
+    </body>
+</html>
