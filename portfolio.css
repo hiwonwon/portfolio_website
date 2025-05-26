@@ -458,7 +458,7 @@ i {
 }
 
 .stack-icon.inactive {
-    filter: grayscale(100%) brightness(0.5);
-    opacity: 0.5;
+    opacity: 0.2;  /* 투명도를 0.2로 설정 (80% 투명) */
+    filter: grayscale(100%);  /* 회색조 효과 추가 */
 }
 
