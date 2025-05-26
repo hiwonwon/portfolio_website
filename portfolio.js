@@ -14,3 +14,32 @@ function handleScroll() {
 // 최초 실행 및 스크롤 이벤트 연결
 window.addEventListener('scroll', handleScroll);
 window.addEventListener('load', handleScroll);
+
+// 카테고리 탭 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.category-tab');
+    const icons = document.querySelectorAll('.stack-icon');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // 활성화된 탭 스타일 변경
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const category = tab.getAttribute('data-category');
+
+            // 아이콘 필터링
+            icons.forEach(icon => {
+                if (category === 'all') {
+                    icon.classList.remove('inactive');
+                } else {
+                    if (icon.classList.contains(category)) {
+                        icon.classList.remove('inactive');
+                    } else {
+                        icon.classList.add('inactive');
+                    }
+                }
+            });
+        });
+    });
+});

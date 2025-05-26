@@ -7,16 +7,17 @@
         <title>hiwon의 포트폴리오</title>
     </head>
     <body>
-        <header class="main-header" id="main-header">
+        <header class="main-header">
             <!-- 1. 로고바 -->
             <div class="header-container">
 
                 <!-- 2. 네비게이션 바 -->
                 <nav>
                     <ul>
-                        <li><a href="#main-header">Home</a></li>
-                        <li><a href="#tech-stack">Stacks</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
 
@@ -36,51 +37,55 @@
                 <div class="profile-row">
                     <div class="profile-text">
                         <div class="full-stack-text">Backend</div>
-                        <h1 style="text-align: left;">
-                            Hi 👋,<br>
-                            제 이름은 <i class="name">hiwon</i>입니다.<br>
-                            저는 백엔드 개발을 잘해요!
-                        </h1>
+                        
                     </div>
-                    <img class="profile-img" src="img/profile.jpeg" alt="프로필 사진">
+                    <h1 style="text-align: center;">
+                        백엔드 개발자 <i >박혜원</i>입니다.
+                    </h1>
+                    
                 </div>
             </div>
         </header>
 
         <!-- 기술 스택 영역 -->
-        <section class="tech-stack-section" id="tech-stack">
+        <section class="tech-stack-section">
             <div class="tech-stack-section">
                 <h2 style="text-align: center;">
                     My Tech Stack<br>
                 </h2>
                 <h3 style="text-align: center;font-weight: lighter;">
-                    제가 주로 사용하는 기술 스택들이에요
+                    제가 주로 사용하는 기술 스택들입니다.
                 </h3>
                 <br>
                 <br>
+                <div class="stack-category-tabs">
+                    <button class="category-tab active" data-category="all">All</button>
+                    <button class="category-tab" data-category="frontend">Frontend</button>
+                    <button class="category-tab" data-category="backend">Backend</button>
+                    <button class="category-tab" data-category="database">Database</button>
+                </div>
                 <div class="stack-icon-wrap">
-                    <img src="img/icon1.png" alt="아이콘1">
-                    <img src="img/icon2.png" alt="아이콘2">
-                    <img src="img/icon3.png" alt="아이콘3">
-                    <img src="img/icon4.png" alt="아이콘4">
-                    <img src="img/icon5.png" alt="아이콘5">
-                    <img src="img/icon6.png" alt="아이콘6">
-                    <img src="img/icon7.png" alt="아이콘7">
-                    <img src="img/icon8.png" alt="아이콘8">
-                    <img src="img/icon9.png" alt="아이콘9">
-                    <img src="img/icon10.png" alt="아이콘10">
-
+                    <img src="img/icon1.png" alt="아이콘1" class="stack-icon frontend">
+                    <img src="img/icon2.png" alt="아이콘2" class="stack-icon frontend">
+                    <img src="img/icon3.png" alt="아이콘3" class="stack-icon frontend">
+                    <img src="img/icon4.png" alt="아이콘4" class="stack-icon backend">
+                    <img src="img/icon5.png" alt="아이콘5" class="stack-icon backend">
+                    <img src="img/icon6.png" alt="아이콘6" class="stack-icon backend">
+                    <img src="img/icon7.png" alt="아이콘7" class="stack-icon database">
+                    <img src="img/icon8.png" alt="아이콘8" class="stack-icon database">
+                    <img src="img/icon9.png" alt="아이콘9" class="stack-icon frontend">
+                    <img src="img/icon10.png" alt="아이콘10" class="stack-icon backend">
                 </div>
             </div>
         </section>
         <!-- 프로젝트 영역 -->
-         <section class="projects-section" id="projects"> 
+         <section class="projects-section"> 
         <div class="projects-section">
             <h2 style="text-align: center;">
                 Projects
             </h2>
             <h3 style="text-align: center;font-weight: lighter;">
-                제가 진행한 프로젝트입니다.
+                제가 진행한 프로젝트 들입니다.
             </h3>
             <!-- 프로젝트 카드 영역 -->
              <div class="projects-section">
