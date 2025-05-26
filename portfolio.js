@@ -1,12 +1,19 @@
 function handleScroll() {
     const sections = document.querySelectorAll('section');
+    const techStackSection = document.querySelector('.tech-stack-section');
+    const projectsSection = document.querySelector('.projects-section');
 
     sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
+        // tech-stack-section과 projects-section은 애니메이션 없이 바로 표시
+        if (section === techStackSection || section === projectsSection) {
             section.classList.add('visible');
         } else {
-            section.classList.remove('visible');
+            if (rect.top < window.innerHeight * 0.8) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
         }
     });
 }
